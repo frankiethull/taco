@@ -1,21 +1,28 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
 # taco
 
-R bindings for the python official repository for the paper “End-to-End
-Compression for Tabular Foundation Models”.
+R bindings for the python official repository for the paper "End-to-End Compression for Tabular Foundation Models".
 
-official python repo for more information:
-<https://github.com/machinelearningnuremberg/TACO>
+official python repo for more information: https://github.com/machinelearningnuremberg/TACO  
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-The goal of taco is to provide R interface to TACO, TabPFN-TACO, an
-end-to-end tabular compression model, increasing inference speed by
-roughly 94x.
+The goal of taco is to provide R interface to TACO, TabPFN-TACO, an end-to-end tabular compression model, increasing inference speed by roughly 94x. 
 
 ## Installation
 
@@ -29,7 +36,7 @@ pak::pak("frankiethull/taco")
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```{r example}
 library(taco)
 library(rsample)
 
@@ -41,9 +48,10 @@ validate <- validation(corn_splits)
 test <- testing(corn_splits)
 ```
 
-### Classification
 
-``` r
+### Classification 
+
+```{r}
 fit_cls <- taco_fit(
   train |> dplyr::select(-type),
   train$type,
@@ -53,11 +61,4 @@ fit_cls <- taco_fit(
 proba_preds <- taco_predict(fit_cls, test |> dplyr::select(-type))
 
 proba_preds |> head()
-#>              [,1]        [,2]      [,3]
-#> [1,] 0.0006586480 0.237107977 0.7622334
-#> [2,] 0.0011727599 0.007011857 0.9918154
-#> [3,] 0.0007276598 0.132747993 0.8665243
-#> [4,] 0.0007220670 0.765205204 0.2340727
-#> [5,] 0.0007999345 0.211649045 0.7875510
-#> [6,] 0.0013515521 0.000364347 0.9982841
 ```

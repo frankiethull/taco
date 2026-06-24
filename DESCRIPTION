@@ -1,0 +1,10 @@
+Package: taco
+Title: R interface for end-to-end compression for tabular foundation models
+Version: 0.0.0.9000
+Authors@R: 
+    person("frank", "hull", , "frankiethull@proton.me", role = c("aut", "cre"))
+Description: taco provides R bindings to TACO, an end-to-end compression for tabular foundation models.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
